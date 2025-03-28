@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../components/AuthContext';
-import { firestore } from '../firebase/firebase';
+import { firestore } from '../../firebase/firebase';
 import {
   doc,
   collection,

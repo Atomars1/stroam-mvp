@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { auth } from '../firebase/firebase';
+import { auth } from '../../firebase/firebase';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -17,7 +17,7 @@ export default function LoginPage() {
   const signIn = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push('/watch');
+      router.push('/feed');
     } catch (error: any) {
       alert(error.message);
     }
@@ -29,7 +29,7 @@ export default function LoginPage() {
       await updateProfile(credential.user, {
         displayName: email.split('@')[0],
       });
-      router.push('/watch');
+      router.push('/feed');
     } catch (error: any) {
       alert(error.message);
     }
