@@ -17,7 +17,7 @@ export default function HomePage() {
       const usernameRef = doc(firestore, 'usernames', username);
       const snap = await getDoc(usernameRef);
       if (!snap.exists()) {
-        alert('Username not found');
+        console.log('Username not found');
         return;
       }
 
@@ -26,7 +26,6 @@ export default function HomePage() {
       // 2) Sign in via email & password
       await signInWithEmailAndPassword(auth, email, password);
 
-      alert('Logged in successfully!');
       // redirect to your watch page (or wherever you prefer)
       router.push('/feed');
     } catch (error: any) {
